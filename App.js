@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import BarberList from "./Components/BarberList/index.js";
+
+import AppContainer from "./Navigation/index";
 
 export default function App() {
-  return <BarberList />;
+  return <AppContainer />;
 }

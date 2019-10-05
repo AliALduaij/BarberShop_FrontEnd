@@ -6,14 +6,14 @@ class BarberStore {
   loading = true;
   query = ""; // for search bar
 
-  //this will fitch barbers list from backend
+  //this will fetch barbers list from backend
   fetchBarbers = async () => {
     try {
-      const res = instance.get("/barber");
+      const res = instance.get("barber/list/");
       const barbers = res.data;
       this.barbers = barbers;
       this.loading = false;
-      console.log("barbers", barbers);
+      console.log("barbers", this.barbers);
     } catch (err) {
       console.error(err);
     }

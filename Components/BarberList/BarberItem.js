@@ -3,7 +3,9 @@ import React, { Component } from "react";
 // for tags
 import { Card, CardItem, Thumbnail, Text, Left } from "native-base";
 import { TouchableHighlight } from "react-native-gesture-handler";
-//
+
+// style
+import style from "./style";
 
 class BarberItem extends Component {
   render() {
