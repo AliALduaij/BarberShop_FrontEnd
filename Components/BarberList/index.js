@@ -1,6 +1,6 @@
 // others
 import React, { Component } from "react";
-import { Spinner, Content, List } from "native-base";
+import { Spinner, Content, List, Text, Button } from "native-base";
 import { observer } from "mobx-react";
 
 // stores
@@ -14,10 +14,20 @@ import list from "./TestData";
 // the barberlist
 
 class BarberList extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: "Barbers",
+    headerLeft: (
+      <Button transparent onPress={() => navigation.openDrawer()}>
+        <Text>...</Text>
+      </Button>
+    ),
+
+    headerRight: null
+  });
   render() {
     if (barberStore.loading) return <Spinner />;
 
-    const barbers = list.map(barber => (
+    const barbers = barberStore.barbers.map(barber => (
       <BarberItem barber={barber} id={barber.id} />
     ));
     return (

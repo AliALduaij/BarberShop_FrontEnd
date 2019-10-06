@@ -1,21 +1,19 @@
-import barber from "../../assets/barber.jpg";
-
 const list = [
   {
     id: 1,
     name: "Mah",
-    image: barber
+    image: "../../assets/barber.jpg"
   },
   {
     id: 2,
     name: "Teema",
-    image: barber
+    image: "../../assets/barber.jpg"
   },
 
   {
     id: 3,
     name: "Mohammed",
-    image: barber
+    image: "../../assets/barber.jpg"
   }
 ];
 export default list;
