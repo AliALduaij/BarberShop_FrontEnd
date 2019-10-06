@@ -22,7 +22,7 @@ class AuthStore {
 
   signup = async (userData, navigation) => {
     try {
-      await instance.post("register/", userData);
+      await instance.post("user/register/", userData);
       this.login(userData, navigation);
     } catch (err) {
       console.error(err.response.data);
@@ -31,7 +31,7 @@ class AuthStore {
 
   login = async (userData, navigation) => {
     try {
-      const res = await instance.post("/login/", userData);
+      const res = await instance.post("barber/login/", userData);
       const data = res.data;
       this.setUser(data.token);
       navigation.replace("BarberList");
