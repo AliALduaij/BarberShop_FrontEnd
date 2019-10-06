@@ -1,70 +1,56 @@
-// import React, { Component } from "react";
-// import { observer } from "mobx-react";
-// import { withNavigation } from "react-navigation";
+import React, { Component } from "react";
+import { observer } from "mobx-react";
+import { withNavigation } from "react-navigation";
 
-// // NativeBase Components
-// import {
-//   Thumbnail,
-//   Text,
-//   Button,
-//   Left,
-//   Body,
-//   Right,
-//   List,
-//   ListItem,
-//   Picker,
-//   Content
-// } from "native-base";
+// NativeBase Components
+import {
+  Thumbnail,
+  Text,
+  Button,
+  Left,
+  Body,
+  Right,
+  List,
+  ListItem,
+  Content
+} from "native-base";
 
-// // Style
-// // import styles from "./styles";
+// Style
 
-// //Store
-// import banakStore from "../../Stores/BarberStore"
-// // Components
+//Store
+import barberStore from "../../Stores/BarberStore";
+// Components
 
-// class BanakDetail extends Component {
-//   state = {};
+class BarberDetail extends Component {
+  state = {};
 
-//   //   static navigationOptions = ({ navigation }) => ({
-//   //     title: navigation.getParam("BanakID", {}).name
-//   //     //     headerRight: <CartButton />
-//   //   });
-//   // const Banak = this.props.navigation.getParam("BanakID", {});
-//   render() {
-//     // const Banak =
+  render() {
+    const barberID = this.props.navigation.getParam("barberID");
+    const barber = barberStore.barbers.find(barbers => barbers.id === barberID);
 
-//     const BanakID = this.props.navigation.getParam("banakID");
-//     const Banak = banakStore.banaks.find(Banaks => Banaks.id === BanakID);
+    return (
+      <Content>
+        <List>
+          <ListItem>
+            <Left>
+              <Text>
+                {barber.name + "\n"}
+                {/* <Text>{barber.services}</Text> */}
+              </Text>
+            </Left>
+            <Body />
+            <Right>
+              <Thumbnail bordered source={{ uri: barber.image }} />
+            </Right>
+          </ListItem>
+          <ListItem></ListItem>
+          <Button full danger>
+            <Text>Book</Text>
+          </Button>
+        </List>
+      </Content>
+    );
+  }
+}
 
-//     return (
-//       <Content>
-//         <BanakModal />
-//         <List>
-//           <ListItem>
-//             <Left>
-//               <Text>
-//                 {Banak.name + "\n"}
-//                 <Text>{Banak.description}</Text>
-//               </Text>
-//             </Left>
-//             <Body />
-//             <Right>
-//               <Thumbnail bordered source={{ uri: Banak.image }} />
-//             </Right>
-//           </ListItem>
-//           <ListItem></ListItem>
-//           <Button
-//             full
-//             danger
-//             onPress={() => cartStore.addItemToCart((item = Banak))}
-//           >
-//             <Text>Add</Text>
-//           </Button>
-//         </List>
-//       </Content>
-//     );
-//   }
-// }
-
-// export default withNavigation(observer(BanakDetail));
+export default withNavigation(observer(BarberDetail));
