@@ -16,7 +16,7 @@ import {
 } from "native-base";
 
 // Store
-import authStore from "../../store/authStore";
+import authStore from "../../Stores/authStore";
 
 class Login extends Component {
   state = {
@@ -25,7 +25,7 @@ class Login extends Component {
   };
   render() {
     const { navigation } = this.props;
-    if (authStore.user) navigation.replace("BarberList");
+    if (authStore.user) navigation.navigate("Home");
     return (
       <Content>
         <Header transparent />
@@ -34,7 +34,7 @@ class Login extends Component {
             <Body>
               <Form>
                 <Body>
-                  <Label style={{ color: "white" }}>Username</Label>
+                  <Label style={{ color: "black" }}>Username</Label>
                 </Body>
                 <Item
                   rounded
@@ -51,7 +51,7 @@ class Login extends Component {
                   />
                 </Item>
                 <Body>
-                  <Label style={{ color: "white" }}>Password</Label>
+                  <Label style={{ color: "black" }}>Password</Label>
                 </Body>
                 <Item
                   rounded

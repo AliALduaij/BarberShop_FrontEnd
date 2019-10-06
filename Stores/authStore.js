@@ -9,7 +9,7 @@ class AuthStore {
   setUser = async token => {
     if (token) {
       await AsyncStorage.setItem("myToken", token);
-      instance.defaults.headers.common.Authorization = `JWT ${token}`;
+      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       const decodedUser = jwt_decode(token);
       this.user = decodedUser;
     } else {
@@ -33,15 +33,16 @@ class AuthStore {
     try {
       const res = await instance.post("barber/login/", userData);
       const data = res.data;
-      this.setUser(data.token);
-      navigation.replace("BarberList");
+      console.log("DATA", data);
+      await this.setUser(data.access);
+      navigation.navigate("Home");
     } catch (err) {
       console.error(err.response.data);
     }
   };
 
-  logout = navigation => {
-    this.setUser();
+  logout = async navigation => {
+    await this.setUser();
     navigation.replace("Login");
   };
 
@@ -51,7 +52,7 @@ class AuthStore {
       const currentTime = Date.now() / 1000;
       const user = jwt_decode(token);
       if (user.exp >= currentTime) {
-        this.setUser(token);
+        await this.setUser(token);
       } else {
         this.logout();
       }

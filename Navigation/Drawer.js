@@ -2,10 +2,13 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 
 import customNavigator from "./customNavigator";
 import BarberStack from "./BarberStack";
+import Login from "../Components/Login";
+import BarberList from "../Components/BarberList";
 
 const DrawerNav = createDrawerNavigator(
   {
-    Home: BarberStack
+    Home: BarberStack,
+    Login: Login
   },
   {
     headerMode: "float",
