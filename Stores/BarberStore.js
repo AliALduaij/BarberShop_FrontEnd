@@ -2,7 +2,7 @@ import { instance } from "./instance";
 import { observable, decorate } from "mobx";
 
 class BarberStore {
-  barbers = []; //barbers list
+  barbers = null; //barbers list
   loading = true;
   query = ""; // for search bar LATER!!
 

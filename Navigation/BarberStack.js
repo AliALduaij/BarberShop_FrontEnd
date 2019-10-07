@@ -1,11 +1,13 @@
 import { createStackNavigator } from "react-navigation-stack";
-import BarberList from "../Components/BarberList";
 
 // Components
+import BarberList from "../Components/BarberList";
+import BarberDetail from "../Components/BarberDetail";
 
 const BarberStack = createStackNavigator(
   {
-    BarberList: BarberList
+    BarberList: BarberList,
+    BarberDetail: BarberDetail
   },
   {
     initialRouteName: "BarberList",
