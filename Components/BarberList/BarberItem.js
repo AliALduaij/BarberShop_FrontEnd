@@ -6,7 +6,6 @@ import { Card, CardItem, Thumbnail, Text, Left } from "native-base";
 import { TouchableHighlight } from "react-native-gesture-handler";
 
 // style
-import style from "./style";
 
 //components
 
