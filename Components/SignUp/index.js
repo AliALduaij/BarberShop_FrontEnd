@@ -12,8 +12,7 @@ import {
   Input,
   Item,
   Content,
-  Header,
-  Section
+  Header
 } from "native-base";
 
 // Store
@@ -22,11 +21,13 @@ import authStore from "../../Stores/authStore";
 class Login extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    first_name: "",
+    last_name: ""
   };
   render() {
     const { navigation } = this.props;
-    if (authStore.user) navigation.navigate("Profile");
+    if (authStore.user) navigation.navigate("Home");
     return (
       <Content>
         <Header transparent />
@@ -65,22 +66,55 @@ class Login extends Component {
                     onChangeText={password => this.setState({ password })}
                   />
                 </Item>
+                <Body>
+                  <Label style={{ color: "black" }}>First Name</Label>
+                </Body>
+                <Item
+                  rounded
+                  style={{
+                    backgroundColor: "white",
+                    marginTop: 10,
+                    marginBottom: 10
+                  }}
+                >
+                  <Input
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    onChangeText={first_name => this.setState({ first_name })}
+                  />
+                </Item>
+                <Body>
+                  <Label style={{ color: "black" }}>Last Name</Label>
+                </Body>
+                <Item
+                  rounded
+                  style={{
+                    backgroundColor: "white",
+                    marginTop: 10,
+                    marginBottom: 10
+                  }}
+                >
+                  <Input
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    onChangeText={last_name => this.setState({ last_name })}
+                  />
+                </Item>
               </Form>
             </Body>
           </ListItem>
           <Button
             full
-            success
-            onPress={() => authStore.login(this.state, navigation)}
+            warning
+            onPress={() => authStore.signup(this.state, navigation)}
           >
-            <Text>Login</Text>
+            <Text>Register</Text>
           </Button>
-
           <Text
             style={{ color: "blue", textAlign: "center" }}
-            onPress={() => this.props.navigation.navigate("SignUp")}
+            onPress={() => this.props.navigation.navigate("Login")}
           >
-            Register a new account here{" "}
+            If you already have an account, click here to login{" "}
           </Text>
         </List>
         <Body>
