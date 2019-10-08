@@ -17,7 +17,7 @@ const BarberList = () => {
   if (barberStore.loading) return <Spinner />;
 
   const barbers = barberStore.barbers.map(barber => (
-    <BarberItem barber={barber} id={barber.user} />
+    <BarberItem barber={barber} key={barber.user} />
   ));
   return (
     <Content>

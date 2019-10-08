@@ -22,6 +22,7 @@ import barberStore from "../../Stores/BarberStore";
 
 // Components
 import ServiceItem from "./ServiceItem";
+import Calendar from "./Calendar";
 
 class BarberDetail extends Component {
   state = {};
@@ -32,7 +33,7 @@ class BarberDetail extends Component {
       barbers => barbers.user === barberID
     );
     const services = barber.services.map(service => (
-      <ServiceItem service={service} id={service.id} />
+      <ServiceItem service={service} key={service.id} />
     ));
     console.log("services", services);
 
@@ -50,6 +51,7 @@ class BarberDetail extends Component {
           </ListItem>
           <ListItem></ListItem>
           {services}
+          <Calendar />
           <Button full danger>
             <Text>Book</Text>
           </Button>
