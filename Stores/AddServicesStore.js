@@ -1,5 +1,5 @@
 import { instance } from "./instance";
-import { observable, decorate } from "mobx";
+import { observable, decorate, computed } from "mobx";
 
 class AddServicesStore {
   services = []; //service list
@@ -17,10 +17,10 @@ class AddServicesStore {
 
 bookService = async () => {
   try {
-    const res = await instance.get("barber/list/");
+    const res = await instance.post("barber/list/");
     const barbers = res.data;
     console.log("baarbers", barbers);
-    this.barbers = barbers;
+    this.barbers = [];
     this.loading = false;
   } catch (err) {
     console.log("I'm an ERROR", err);
@@ -28,7 +28,9 @@ bookService = async () => {
 };
 
 decorate(AddServicesStore, {
-  services: observable
+  services: observable,
+  isModalVisible: observable,
+  toggleModal: computed
 });
 
 const addServicesStore = new AddServicesStore();

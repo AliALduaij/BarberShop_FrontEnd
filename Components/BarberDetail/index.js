@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import { withNavigation } from "react-navigation";
-
+import Calendar from "./Calendar";
 // NativeBase Components
 import {
   Thumbnail,
@@ -32,7 +32,7 @@ class BarberDetail extends Component {
       barbers => barbers.user === barberID
     );
     const services = barber.services.map(service => (
-      <ServiceItem service={service} id={service.id} />
+      <ServiceItem service={service} key={service.id} />
     ));
     console.log("services", services);
 
@@ -50,10 +50,11 @@ class BarberDetail extends Component {
           </ListItem>
           <ListItem></ListItem>
           {services}
-          <Button full danger>
-            <Text>Book</Text>
-          </Button>
         </List>
+        <Calendar barberID={barberID} />
+        <Button full danger>
+          <Text>Book</Text>
+        </Button>
       </Content>
     );
   }
