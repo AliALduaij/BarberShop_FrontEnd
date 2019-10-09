@@ -4,7 +4,7 @@ import { Button, Text, Icon } from "native-base";
 import { observer } from "mobx-react";
 import { TouchableHighlight, View, Modal } from "react-native";
 import cartStore from "../../stores/cartStore";
-import NotificationModal from "../Profile/NotificationModal";
+import NotificationModal from "../UserProfile/NotificationModal";
 
 class NotificationButton extends Component {
   state = {
@@ -20,7 +20,6 @@ class NotificationButton extends Component {
   }
   render() {
     return (
-
       <>
         <Button
           light

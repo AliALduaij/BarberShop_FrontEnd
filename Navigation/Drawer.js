@@ -8,14 +8,16 @@ import BarberStack from "./BarberStack";
 import Login from "../Components/Login";
 import BarberList from "../Components/BarberList";
 import SignUp from "../Components/SignUp";
-import Profile from "../Components/Profile";
+import Profile from "../Components/UserProfile";
+import BarberProfile from "../Components/BarberProfile";
 
 const DrawerNav = createDrawerNavigator(
   {
     Home: BarberStack,
     Login: Login,
     SignUp: SignUp,
-    Profile: Profile
+    UserProfile: Profile,
+    BarberProfile: BarberProfile
   },
   {
     headerMode: "float",

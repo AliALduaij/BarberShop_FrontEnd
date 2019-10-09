@@ -22,18 +22,21 @@ import {
 
 // Stores
 import authStore from "../../Stores/authStore";
-import profileStore from "../../Stores/profileStore";
+import profileStore from "../../Stores/ProfileStore";
 // import cartStore from "../../stores/cartStore";
+
+//Components
+import AppointmentCard from "../BarberProfile/AppointmentCard";
 
 //Buttons
 // import NotificationButton from "../Buttons/NotificationButton";
 
-class Profile extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: "Profile Page",
-    headerLeft: null
-    // headerRight: <NotificationButton />
-  });
+class BarberProfile extends Component {
+  // static navigationOptions = ({ navigation }) => ({
+  // title: "Profile Page",
+  // headerLeft: null
+  // headerRight: <NotificationButton />
+  // });
 
   handlePress = item => {
     this.props.navigation.navigate("CarDetail", {
@@ -42,7 +45,7 @@ class Profile extends Component {
   };
   componentDidMount() {
     if (authStore.user) {
-      profileStore.fetchProfile();
+      profileStore.fetchBarberProfile();
       // profileStore.fetchHistory();
       // profileStore.fetchNotification();
       // cartStore.fetchCart();
@@ -51,7 +54,7 @@ class Profile extends Component {
   render() {
     if (!authStore.user) this.props.navigation.navigate("Login");
 
-    if (authStore.loading) return <Spinner />;
+    if (profileStore.loading) return <Spinner />;
 
     // this is the order history, will be replaced by APPOINTMENT HISTORY
 
@@ -88,19 +91,48 @@ class Profile extends Component {
     //   });
     //   return <List>{zzz}</List>;
     // };
+
+    const future_appointments = profileStore.profile.future_appointments.map(
+      appointment => <AppointmentCard appointment={appointment} />
+    );
+
+    const past_appointments = profileStore.profile.past_appointments.map(
+      appointment => <AppointmentCard appointment={appointment} />
+    );
+
     return (
       <Container>
         <Content padder>
-          <Text>Welcome! {profileStore.profile.first_name}</Text>
-          <Text>{"\n"}Order History</Text>
+          <Card>
+            <CardItem>
+              <Thumbnail
+                bordered
+                source={{ uri: profileStore.profile.image }}
+              />
+            </CardItem>
+            <CardItem>
+              <Text padder>Welcome Back {profileStore.profile.name}!</Text>
+            </CardItem>
+            <CardItem>
+              <Text padder> Telephone: {profileStore.profile.telephone}</Text>
+            </CardItem>
+            <CardItem>
+              <Text padder> Address: {profileStore.profile.address}</Text>
+            </CardItem>
+          </Card>
+
+          <Text>{"\n"}Upcoming Appointments</Text>
           {/* <Accordion
             renderContent={_renderContent}
             dataArray={dataArray}
             style={{ marginTop: 20 }}
           /> */}
+          <List>{future_appointments}</List>
+          <Text>{"\n"}Past Appointments</Text>
+          <List>{past_appointments}</List>
         </Content>
       </Container>
     );
   }
 }
-export default observer(Profile);
+export default observer(BarberProfile);
