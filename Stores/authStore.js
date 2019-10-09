@@ -31,7 +31,7 @@ class AuthStore {
 
   login = async (userData, navigation) => {
     try {
-      const res = await instance.post("barber/login/", userData);
+      const res = await instance.post("login/", userData);
       const data = res.data;
       console.log("DATA", data);
       await this.setUser(data.access);

@@ -8,7 +8,16 @@ class ProfileStore {
   notifications = [];
   fetchProfile = async () => {
     try {
-      let res = await instance.get("profile/");
+      let res = await instance.get("user/profile/");
+      this.profile = res.data;
+      this.loading = false;
+    } catch (err) {
+      console.error(err.stack);
+    }
+  };
+  fetchBarberProfile = async () => {
+    try {
+      let res = await instance.get("barber/profile/");
       this.profile = res.data;
       this.loading = false;
     } catch (err) {
