@@ -11,17 +11,21 @@ class AddServicesStore {
   };
 
   addService = service => {
-    const foundItem = this.services.find(
-      serviceItem => serviceItem.id === service.id
-    ); // checks if service is in the array
-
-    if (foundItem) {
-      this.removeService(service); // if found service will be removed from array
-    } else {
-      this.services.push(service); // if not found service will be added to array
-    }
-  }; //
+    this.services.push(service); // if not found service will be added to array
+  };
 }
+
+bookService = async () => {
+  try {
+    const res = await instance.get("barber/list/");
+    const barbers = res.data;
+    console.log("baarbers", barbers);
+    this.barbers = barbers;
+    this.loading = false;
+  } catch (err) {
+    console.log("I'm an ERROR", err);
+  }
+};
 
 decorate(AddServicesStore, {
   services: observable

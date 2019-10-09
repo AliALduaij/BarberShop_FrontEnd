@@ -23,8 +23,12 @@ const ServiceItem = ({ service }) => {
   const [checked, useChecked] = useState(false); //Google React Hooks
 
   handlePress = () => {
+    if (checked) {
+      addServicesStore.removeService(service.id);
+    } else {
+      addServicesStore.addService(service.id);
+    }
     useChecked(!checked);
-    addServicesStore.addService(service.id);
   };
 
   return (
