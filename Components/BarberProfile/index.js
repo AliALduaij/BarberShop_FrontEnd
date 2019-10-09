@@ -22,7 +22,7 @@ import {
 
 // Stores
 import authStore from "../../Stores/authStore";
-import profileStore from "../../Stores/ProfileStore";
+import profileStore from "../../Stores/profileStore";
 // import cartStore from "../../stores/cartStore";
 
 //Components
