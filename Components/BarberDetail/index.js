@@ -28,7 +28,9 @@ class BarberDetail extends Component {
 
   render() {
     const barberID = this.props.navigation.getParam("barberID");
-    const barber = barberStore.barbers.find(barbers => barbers.id === barberID);
+    const barber = barberStore.barbers.find(
+      barbers => barbers.user === barberID
+    );
     const services = barber.services.map(service => (
       <ServiceItem service={service} id={service.id} />
     ));

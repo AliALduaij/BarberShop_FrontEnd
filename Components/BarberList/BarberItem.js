@@ -12,7 +12,7 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 class BarberItem extends Component {
   handlePress = () => {
     this.props.navigation.navigate("BarberDetail", {
-      barberID: this.props.barber.id //there is no id for the serializer
+      barberID: this.props.barber.user //there is no id for the serializer
     });
   };
 
