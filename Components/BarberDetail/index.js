@@ -51,7 +51,7 @@ class BarberDetail extends Component {
           </ListItem>
           <ListItem></ListItem>
           {services}
-          <Calendar />
+          <Calendar barberID={barberID} />
           <Button full danger>
             <Text>Book</Text>
           </Button>

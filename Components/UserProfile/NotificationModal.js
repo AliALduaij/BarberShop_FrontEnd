@@ -14,7 +14,7 @@ import {
 } from "native-base";
 import { observer } from "mobx-react";
 import { View, Modal } from "react-native";
-import profileStore from "../../Stores/ProfileStore";
+import profileStore from "../../Stores/profileStore";
 
 class NotificationModal extends Component {
   componentDidMount = () => {

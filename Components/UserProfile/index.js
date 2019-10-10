@@ -22,7 +22,7 @@ import {
 
 // Stores
 import authStore from "../../Stores/authStore";
-import profileStore from "../../Stores/ProfileStore";
+import profileStore from "../../Stores/profileStore";
 // import cartStore from "../../stores/cartStore";
 
 //Components
@@ -38,11 +38,11 @@ class Profile extends Component {
   // headerRight: <NotificationButton />
   // });
 
-  handlePress = item => {
-    this.props.navigation.navigate("CarDetail", {
-      item: item
-    });
-  };
+  // handlePress = item => {
+  //   this.props.navigation.navigate("CarDetail", {
+  //     item: item
+  //   });
+  // };
   componentDidMount() {
     if (authStore.user) {
       profileStore.fetchProfile();

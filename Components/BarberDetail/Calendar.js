@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
+import TimePick from "./TimePick";
 
 class Calendar extends Component {
   state = {
@@ -13,6 +14,7 @@ class Calendar extends Component {
     });
   };
   render() {
+    const { barberID } = this.props;
     const { selectedStartDate } = this.state;
     const startDate = selectedStartDate ? selectedStartDate.toString() : "";
     return (
@@ -22,9 +24,8 @@ class Calendar extends Component {
           //   disabledDates={[new Date()]}  // for full bookings later
           minDate={new Date()}
         />
-        <View>
-          <Text>SELECTED DATE:{startDate}</Text>
-        </View>
+        <View>{/* <Text>SELECTED DATE:{startDate}</Text> */}</View>
+        <TimePick barberID={barberID} />
       </View>
     );
   }
