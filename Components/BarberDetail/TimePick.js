@@ -10,14 +10,12 @@ import { List } from "native-base";
 export default class TimePick extends Component {
   state = {
     isModalVisible: false,
-    selectedTime:null
+    selectedTime: null
   };
 
   toggleModal = () => {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   };
-
-  selectTime=()
 
   render() {
     const { barberID } = this.props;
@@ -37,10 +35,9 @@ export default class TimePick extends Component {
         >
           <View>
             <List style={{ flexDirection: "row" }}>{times}</List>
-            <Button title="Cancel" onPress={this.toggleModal} />  
+            <Button title="Cancel" onPress={this.toggleModal} />
             {/* cancel button will also clear time selected from the store */}
-            <Button title="Confirm" onPress={}/>
-            
+            {/* <Button title="Confirm" /> */}
           </View>
         </Modal>
       </View>

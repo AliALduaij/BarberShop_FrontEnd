@@ -21,17 +21,18 @@ class BarberItem extends Component {
 
     return (
       <Card>
-        <CardItem>
-          <Left>
-            <TouchableHighlight onPress={this.handlePress}>
+        <TouchableHighlight onPress={this.handlePress}>
+          <CardItem>
+            <Left>
               <Thumbnail bordered source={{ uri: barber.image }} />
-            </TouchableHighlight>
-            <Text>{barber.name}</Text>
 
-            {/* i will put ratings here later */}
-            {/* i will put estimated time here later */}
-          </Left>
-        </CardItem>
+              <Text>{barber.name}</Text>
+
+              {/* i will put ratings here later */}
+              {/* i will put estimated time here later */}
+            </Left>
+          </CardItem>
+        </TouchableHighlight>
       </Card>
     );
   }
