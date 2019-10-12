@@ -111,6 +111,7 @@ class Profile extends Component {
               />
             </CardItem>
             <CardItem>
+              <Text>I AM A USER</Text>
               <Text padder>Welcome Back {profileStore.profile.name}!</Text>
             </CardItem>
             <CardItem>

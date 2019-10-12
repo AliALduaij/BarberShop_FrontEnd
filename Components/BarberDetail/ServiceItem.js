@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import { withNavigation } from "react-navigation";
-import { View, Text } from "react-native";
+import { View, Text, Left } from "react-native";
 import {
   Collapse,
   CollapseHeader,
@@ -36,9 +36,9 @@ const ServiceItem = ({ service }) => {
       <Collapse>
         <CollapseHeader>
           <Separator bordered>
-            <Text>{service.name}</Text>
-
             <CheckBox checked={checked} color="green" onPress={handlePress} />
+
+            <Text>{service.name}</Text>
           </Separator>
         </CollapseHeader>
         <CollapseBody>

@@ -42,15 +42,21 @@ class BarberDetail extends Component {
         <List>
           <ListItem>
             <Left>
-              <Text>{barber.name + "\n"}</Text>
+              <Text>
+                {barber.name + "\n\n"}
+                <Text>
+                  Nationality: {barber.nationality + "\n\n"}
+                  <Text>Experience: {barber.experience + "\n\n"}</Text>
+                </Text>
+              </Text>
             </Left>
             <Body />
             <Right>
               <Thumbnail bordered source={{ uri: barber.image }} />
             </Right>
           </ListItem>
-          <ListItem></ListItem>
           {services}
+
           <Calendar barberID={barberID} />
           <Button full danger>
             <Text>Book</Text>
