@@ -11,26 +11,27 @@ import SignUp from "../Components/SignUp";
 import Profile from "../Components/UserProfile";
 import BarberProfile from "../Components/BarberProfile";
 import OrderList from "../Components/OrderList";
+import UserStack from "./UserStack";
 
 const userType = "barber";
 
 const DrawerNav = createDrawerNavigator(
-  {
-    Home: BarberStack,
-    Login: Login,
-    SignUp: SignUp,
-    // Profile: {
-    //   screen: () => (userType === "barber" ? BarberProfile : Profile)
-    // },
-    UserProfile: Profile,
-    BarberProfile: BarberProfile,
-    OrderList: OrderList
-  },
+  userType == "user"
+    ? {
+        Home: BarberStack,
+        BarberProfile: BarberProfile
+      }
+    : {
+        Home: UserStack,
+        Login: Login,
+        SignUp: SignUp,
+        UserProfile: Profile
+      },
   {
     headerMode: "float",
     // drawerBackgroundColor: "transparent"
     contentComponent: customNavigator,
-    initialRoutteName: "Home",
+    initialRouteName: "Home",
     drawerOpenRoute: "DrawerOpen",
     drawerCloseRoute: "DrawerClose",
     drawerToggleRoute: "DrawerToggle"
