@@ -36,17 +36,16 @@ class OrderList extends Component {
       </Content>
     );
   }
-
-  // BarberList.navigationOptions = ({ navigation }) => ({
-  //   title: "Orders",
-  //   headerLeft: (
-  //     <Button transparent onPress={() => navigation.openDrawer()}>
-  //       <Text>...</Text>
-  //     </Button>
-  //   ),
-
-  //   headerRight: null
-  // });
 }
+OrderList.navigationOptions = ({ navigation }) => ({
+  title: "Orders",
+  headerLeft: (
+    <Button transparent onPress={() => navigation.openDrawer()}>
+      <Text>...</Text>
+    </Button>
+  ),
+
+  headerRight: null
+});
 
 export default observer(OrderList);
