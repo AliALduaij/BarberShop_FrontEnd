@@ -31,7 +31,7 @@ export default class TimePick extends Component {
         <Button title="Time" onPress={this.toggleModal} />
         <Modal
           isVisible={this.state.isModalVisible}
-          onBackdropPress={this.closeModal}
+          onBackdropPress={this.toggleModal}
         >
           <View>
             <List style={{ flexDirection: "row" }}>{times}</List>

@@ -10,6 +10,7 @@ import barberStore from "../../Stores/BarberStore";
 import BarberItem from "./BarberItem";
 import style from "./style";
 import list from "./TestData";
+import FilterOption from "./FilterOptions";
 
 // the barberlist
 
@@ -34,7 +35,7 @@ BarberList.navigationOptions = ({ navigation }) => ({
     </Button>
   ),
 
-  headerRight: null
+  headerRight: <FilterOption />
 });
 
 export default observer(BarberList);
