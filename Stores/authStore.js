@@ -5,6 +5,7 @@ import { instance } from "./instance";
 
 class AuthStore {
   user = null;
+  isBarber = false;
 
   setUser = async token => {
     if (token) {
@@ -21,11 +22,24 @@ class AuthStore {
   };
 
   signup = async (userData, navigation) => {
-    try {
-      await instance.post("user/register/", userData);
-      this.login(userData, navigation);
-    } catch (err) {
-      console.error(err.response.data);
+    if (this.isBarber) {
+      try {
+        const res = await instance.post("barber/register/", userData);
+        const user = res.data;
+        this.setUser(user.access);
+        navigation.replace("Home");
+      } catch (err) {
+        console.error(err.response.data);
+      }
+    } else {
+      try {
+        const res = await instance.post("user/register/", userData);
+        const user = res.data;
+        this.setUser(user.access);
+        navigation.replace("Home");
+      } catch (err) {
+        console.error(err.response.data);
+      }
     }
   };
 
@@ -35,7 +49,7 @@ class AuthStore {
       const data = res.data;
       console.log("DATA", data);
       await this.setUser(data.access);
-      navigation.navigate("Home");
+      navigation.replace("Home");
     } catch (err) {
       console.error(err.response.data);
     }
@@ -43,7 +57,7 @@ class AuthStore {
 
   logout = async navigation => {
     await this.setUser();
-    navigation.navigate("Home");
+    navigation.navigate("Login");
   };
 
   checkForToken = async () => {
@@ -61,7 +75,8 @@ class AuthStore {
 }
 
 decorate(AuthStore, {
-  user: observable
+  user: observable,
+  isBarber: observable
 });
 
 const authStore = new AuthStore();
