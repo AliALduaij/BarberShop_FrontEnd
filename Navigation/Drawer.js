@@ -15,10 +15,12 @@ import UserStack from "./UserStack";
 import authStore from "../Stores/authStore";
 import { observer } from "mobx-react";
 
+
 const userType = authStore.isBarber;
 
 const DrawerNav = createDrawerNavigator(
   userType
+
     ? {
         Home: BarberStack,
         BarberProfile: BarberProfile

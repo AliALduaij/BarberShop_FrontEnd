@@ -23,7 +23,7 @@ bookService = async () => {
     this.barbers = barbers;
     this.loading = false;
   } catch (err) {
-    console.log("I'm an ERROR", err);
+    console.log("I'm an ERROR 2", err);
   }
 };
 
