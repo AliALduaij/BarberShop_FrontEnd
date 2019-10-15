@@ -12,11 +12,15 @@ import Profile from "../Components/UserProfile";
 import BarberProfile from "../Components/BarberProfile";
 import OrderList from "../Components/OrderList";
 import UserStack from "./UserStack";
+import authStore from "../Stores/authStore";
+import { observer } from "mobx-react";
 
-const userType = "user";
+
+const userType = authStore.isBarber;
 
 const DrawerNav = createDrawerNavigator(
-  userType == "barber"
+  userType
+
     ? {
         Home: BarberStack,
         BarberProfile: BarberProfile
@@ -38,4 +42,4 @@ const DrawerNav = createDrawerNavigator(
   }
 );
 
-export default DrawerNav;
+export default observer(DrawerNav);

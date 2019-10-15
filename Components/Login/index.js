@@ -13,16 +13,22 @@ import {
   Item,
   Content,
   Header,
-  Section
+  Section,
+  CheckBox
 } from "native-base";
 
 // Store
 import authStore from "../../Stores/authStore";
+import { observer } from "mobx-react";
 
 class Login extends Component {
   state = {
     username: "",
     password: ""
+  };
+
+  handlePress = () => {
+    authStore.isBarber = !authStore.isBarber;
   };
   render() {
     const { navigation } = this.props;
@@ -75,6 +81,11 @@ class Login extends Component {
           >
             <Text>Login</Text>
           </Button>
+          <CheckBox checked={authStore.isBarber} onPress={this.handlePress} />
+          {console.log("AUTHSTORE.isBarber", authStore.isBarber)}
+          <Text style={{ textAlign: "center" }}>
+            Check this box to login as a barber.
+          </Text>
 
           <Text
             style={{ color: "blue", textAlign: "center" }}
@@ -91,4 +102,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default observer(Login);
