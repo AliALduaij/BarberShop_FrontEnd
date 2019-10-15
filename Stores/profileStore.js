@@ -1,7 +1,7 @@
 import { decorate, observable, action, computed } from "mobx";
 import { instance } from "./instance";
 class ProfileStore {
-  profile = "";
+  profile = null;
   loading = true;
   carts = [];
   cart = "";
@@ -12,7 +12,7 @@ class ProfileStore {
       this.profile = res.data;
       this.loading = false;
     } catch (err) {
-      console.error(err.stack);
+      console.error(err.response.data);
     }
   };
   fetchBarberProfile = async () => {
@@ -24,6 +24,19 @@ class ProfileStore {
       console.error(err.stack);
     }
   };
+
+  updateUserProfile = async (updatedData, navigation) => {
+    try {
+      let res = await instance.put("user/profile/update/", updatedData);
+      await this.fetchProfile();
+      // const updatedProfile = res.data;
+      // this.profile = updatedProfile;
+      navigation.replace("Profile");
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+
   fetchNotification = async () => {
     try {
       let res = await instance.get("notification/");

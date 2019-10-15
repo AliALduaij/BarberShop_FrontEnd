@@ -16,6 +16,7 @@ import authStore from "../Stores/authStore";
 import { observer } from "mobx-react";
 import Root from "./BarberStack";
 
+
 // const userType = authStore.isBarber;
 
 const DrawerNav = createDrawerNavigator(
@@ -23,6 +24,9 @@ const DrawerNav = createDrawerNavigator(
     Home: Root,
     Login: Login
   },
+
+
+
   {
     headerMode: "float",
     // drawerBackgroundColor: "transparent"

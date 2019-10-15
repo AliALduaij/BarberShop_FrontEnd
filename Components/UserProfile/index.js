@@ -12,6 +12,7 @@ import {
   Header,
   Content,
   Accordion,
+  Icon,
   List,
   ListItem,
   Left,
@@ -108,6 +109,13 @@ class Profile extends Component {
               <Thumbnail
                 bordered
                 source={{ uri: profileStore.profile.image }}
+              />
+              <Icon
+                name="account-details"
+                type="MaterialCommunityIcons"
+                onPress={() =>
+                  this.props.navigation.navigate("EditUserProfile")
+                }
               />
             </CardItem>
             <CardItem>

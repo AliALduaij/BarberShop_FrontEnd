@@ -15,6 +15,7 @@ class AddServicesStore {
     this.services.push(service); // if not found service will be added to array
   };
 
+
   chooseTime = time => {
     this.timeID = time;
     console.log("HowUDoin?", this.timeID);
@@ -39,6 +40,7 @@ class AddServicesStore {
     }
   };
 }
+
 
 decorate(AddServicesStore, {
   services: observable,
