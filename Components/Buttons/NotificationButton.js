@@ -15,7 +15,6 @@ class NotificationButton extends Component {
   }
 
   handleClick(visible) {
-    console.log("CLICKED!");
     this.setState({ visibility: visible });
   }
   render() {

@@ -14,21 +14,15 @@ import OrderList from "../Components/OrderList";
 import UserStack from "./UserStack";
 import authStore from "../Stores/authStore";
 import { observer } from "mobx-react";
+import Root from "./BarberStack";
 
-const userType = authStore.isBarber;
+// const userType = authStore.isBarber;
 
 const DrawerNav = createDrawerNavigator(
-  userType
-    ? {
-        Home: BarberStack,
-        BarberProfile: BarberProfile
-      }
-    : {
-        Home: UserStack,
-        Login: Login,
-        SignUp: SignUp,
-        UserProfile: Profile
-      },
+  {
+    Home: Root,
+    Login: Login
+  },
   {
     headerMode: "float",
     // drawerBackgroundColor: "transparent"

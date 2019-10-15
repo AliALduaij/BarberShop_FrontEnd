@@ -11,7 +11,7 @@ class BarberStore {
     try {
       const res = await instance.get("barber/list/");
       const barbers = res.data;
-      console.log("baarbers", barbers);
+
       this.barbers = barbers;
       this.loading = false;
     } catch (err) {

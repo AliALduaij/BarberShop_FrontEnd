@@ -27,12 +27,9 @@ class Login extends Component {
     password: ""
   };
 
-  handlePress = () => {
-    authStore.isBarber = !authStore.isBarber;
-  };
   render() {
     const { navigation } = this.props;
-    if (authStore.user) navigation.navigate("Profile");
+    // if (!authStore.user) navigation.navigate("login");
     return (
       <Content>
         <Header transparent />
@@ -81,8 +78,7 @@ class Login extends Component {
           >
             <Text>Login</Text>
           </Button>
-          <CheckBox checked={authStore.isBarber} onPress={this.handlePress} />
-          {console.log("AUTHSTORE.isBarber", authStore.isBarber)}
+
           <Text style={{ textAlign: "center" }}>
             Check this box to login as a barber.
           </Text>

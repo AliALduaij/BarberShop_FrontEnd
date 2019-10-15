@@ -23,6 +23,7 @@ import barberStore from "../../Stores/BarberStore";
 // Components
 import ServiceItem from "./ServiceItem";
 import Calendar from "./Calendar";
+import addServicesStore from "../../Stores/AddServicesStore";
 
 class BarberDetail extends Component {
   state = {};
@@ -35,7 +36,6 @@ class BarberDetail extends Component {
     const services = barber.services.map(service => (
       <ServiceItem service={service} key={service.id} />
     ));
-    console.log("services", services);
 
     return (
       <Content>
@@ -56,9 +56,12 @@ class BarberDetail extends Component {
             </Right>
           </ListItem>
           {services}
-
-          <Calendar barberID={barberID} />
-          <Button full danger>
+          {barber.appointments ? (
+            <Calendar barberID={barberID} />
+          ) : (
+            <Text>This barber has no appointments.</Text>
+          )}
+          <Button onPress={() => addServicesStore.bookService()} full danger>
             <Text>Book</Text>
           </Button>
         </List>

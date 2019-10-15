@@ -3,6 +3,7 @@ import { observable, decorate } from "mobx";
 
 class AddServicesStore {
   services = []; //service list
+  timeID = "";
 
   removeService = service => {
     this.services = this.services.filter(
@@ -13,22 +14,35 @@ class AddServicesStore {
   addService = service => {
     this.services.push(service); // if not found service will be added to array
   };
+
+  chooseTime = time => {
+    this.timeID = time;
+    console.log("HowUDoin?", this.timeID);
+  };
+
+  removeTime = () => {
+    this.timeID = "";
+    console.log("HowUDoinCancel?", this.timeID);
+  };
+
+  bookService = async () => {
+    try {
+      const res = await instance.put(
+        `barber/appointment/update/${this.timeID}`,
+        this.services
+      );
+      this.services = [];
+      this.timeID = "";
+      navigation.navigate("Home");
+    } catch (err) {
+      console.log("I'm an ERROR", err);
+    }
+  };
 }
 
-bookService = async () => {
-  try {
-    const res = await instance.get("barber/list/");
-    const barbers = res.data;
-    console.log("baarbers", barbers);
-    this.barbers = barbers;
-    this.loading = false;
-  } catch (err) {
-    console.log("I'm an ERROR", err);
-  }
-};
-
 decorate(AddServicesStore, {
-  services: observable
+  services: observable,
+  timeID: observable
 });
 
 const addServicesStore = new AddServicesStore();

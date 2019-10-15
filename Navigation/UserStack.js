@@ -4,12 +4,14 @@ import { createStackNavigator } from "react-navigation-stack";
 import BarberList from "../Components/BarberList";
 import BarberDetail from "../Components/BarberDetail";
 import Profile from "../Components/UserProfile";
+import BarberOrUser from "../Components/BarberOrUser";
 
 const UserStack = createStackNavigator(
   {
     BarberList: BarberList,
     BarberDetail: BarberDetail,
-    Profile: Profile
+    Profile: Profile,
+    BarberOrUser: BarberOrUser
   },
   {
     initialRouteName: "BarberList",
