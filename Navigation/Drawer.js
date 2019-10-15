@@ -13,10 +13,10 @@ import BarberProfile from "../Components/BarberProfile";
 import OrderList from "../Components/OrderList";
 import UserStack from "./UserStack";
 
-const userType = "barber";
+const userType = "user";
 
 const DrawerNav = createDrawerNavigator(
-  userType == "user"
+  userType == "barber"
     ? {
         Home: BarberStack,
         BarberProfile: BarberProfile
