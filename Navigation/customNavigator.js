@@ -1,6 +1,7 @@
 import React from "react";
 import { DrawerNavigatorItems } from "react-navigation-drawer";
-import { Image } from "react-native";
+import { Image, Text } from "react-native";
+import { Button } from "native-base";
 import { Container, Content, Header, Body } from "native-base";
 import LogoutButton from "../Components/Buttons/LogoutButton";
 const customNavigator = props => (
@@ -11,6 +12,7 @@ const customNavigator = props => (
     </Header>
     <Content>
       <DrawerNavigatorItems {...props} />
+      <Button></Button>
     </Content>
   </Container>
 );

@@ -13,6 +13,8 @@ import {
   Button
 } from "native-base";
 import { TouchableHighlight } from "react-native-gesture-handler";
+import { observer } from "mobx-react";
+import addServicesStore from "../../Stores/AddServicesStore";
 
 // style
 
@@ -21,9 +23,14 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 class TimeItem extends Component {
   render() {
     const { time } = this.props;
-    const newTime = moment(Date(time)).format("hh:mm:ss ");
+    // const newTime = moment(Date(time)).format("hh:mm:ss ");
     return (
-      <Button bordered light style={{ height: 50, width: 110, margin: 5 }}>
+      <Button
+        onPress={() => addServicesStore.chooseTime(time.id)}
+        bordered
+        light
+        style={{ height: 50, width: 110, margin: 5 }}
+      >
         <Text
           style={{
             fontSize: 20,
@@ -33,11 +40,11 @@ class TimeItem extends Component {
             paddingRight: 20
           }}
         >
-          {newTime}
+          {time.time}
         </Text>
       </Button>
     );
   }
 }
 
-export default TimeItem;
+export default observer(TimeItem);

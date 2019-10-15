@@ -47,9 +47,9 @@ class AuthStore {
     try {
       const res = await instance.post("login/", userData);
       const data = res.data;
-      console.log("DATA", data);
+      this.isBarber = data.barber;
       await this.setUser(data.access);
-      navigation.replace("Home");
+      navigation.navigate(this.isBarber ? "BarberStack" : "UserStack");
     } catch (err) {
       console.error(err.response.data);
     }
