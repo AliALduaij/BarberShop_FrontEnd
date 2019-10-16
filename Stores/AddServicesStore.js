@@ -13,8 +13,8 @@ class AddServicesStore {
 
   addService = service => {
     this.services.push(service); // if not found service will be added to array
+    console.log("Sdfsdf", this.services);
   };
-
 
   chooseTime = time => {
     this.timeID = time;
@@ -29,9 +29,10 @@ class AddServicesStore {
   bookService = async () => {
     try {
       const res = await instance.put(
-        `barber/appointment/update/${this.timeID}`,
+        `user/appointment/update/${this.timeID}`,
         this.services
       );
+
       this.services = [];
       this.timeID = "";
       navigation.navigate("Home");
@@ -40,7 +41,6 @@ class AddServicesStore {
     }
   };
 }
-
 
 decorate(AddServicesStore, {
   services: observable,

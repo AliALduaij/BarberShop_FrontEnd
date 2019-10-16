@@ -25,12 +25,13 @@ class Calendar extends Component {
     const startDate = selectedStartDate ? selectedStartDate.toString() : "";
     const dates = barber.appointments.dates.map(date => date.date);
     newDate = moment(startDate).format("YYYY-MM-DD");
+    console.log("SDFsd", dates);
 
     return (
       <View style={styles.container}>
         <CalendarPicker
           onDateChange={this.onDateChange}
-          // disabledDates={!dates} // for full bookings later
+          // disabledDates={dates} // for full bookings later
           minDate={new Date()}
         />
         <View></View>
