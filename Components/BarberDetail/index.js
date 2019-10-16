@@ -26,6 +26,7 @@ import barberStore from "../../Stores/BarberStore";
 import ServiceItem from "./ServiceItem";
 import Calendar from "./Calendar";
 import addServicesStore from "../../Stores/AddServicesStore";
+import authStore from "../../Stores/authStore";
 
 class BarberDetail extends Component {
   state = {};
@@ -68,7 +69,15 @@ class BarberDetail extends Component {
           ) : (
             <Text>This barber has no appointments.</Text>
           )}
-          <Button onPress={() => addServicesStore.bookService()} full danger>
+          <Button
+            onPress={() =>
+              authStore.user
+                ? addServicesStore.bookService(this.props.navigation)
+                : alert("You need to login")
+            }
+            full
+            danger
+          >
             <Text>Book</Text>
           </Button>
         </List>
