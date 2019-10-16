@@ -1,5 +1,6 @@
 import { decorate, observable, action, computed } from "mobx";
 import { instance } from "./instance";
+import authStore from "./authStore";
 class ProfileStore {
   profile = null;
   loading = true;
@@ -8,7 +9,10 @@ class ProfileStore {
   notifications = [];
   fetchProfile = async () => {
     try {
-      let res = await instance.get("user/profile/");
+      authStore.isBarber
+        ? (res = await instance.get("user/profile/"))
+        : (res = await instance.get("barber/profile/"));
+
       this.profile = res.data;
       this.loading = false;
     } catch (err) {

@@ -15,7 +15,7 @@ import OrderItem from "./OrderItem";
 class OrderList extends Component {
   componentDidMount() {
     if (authStore.user) {
-      profileStore.fetchProfile();
+      profileStore.fetchBarberProfile(); //
     }
   }
 

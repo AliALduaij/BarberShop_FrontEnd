@@ -44,7 +44,7 @@ export default class TimePick extends Component {
             <List style={{ flexDirection: "row" }}>{times}</List>
             <Button title="Cancel" onPress={this.handlePress} />
             {/* cancel button will also clear time selected from the store */}
-            <Button title="Confirm" />
+            <Button onPress={this.toggleModal} title="Confirm" />
           </View>
         </Modal>
       </View>

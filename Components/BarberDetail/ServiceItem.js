@@ -27,6 +27,7 @@ const ServiceItem = ({ service }) => {
       addServicesStore.removeService(service.id);
     } else {
       addServicesStore.addService(service.id);
+      console.log("sereID", service.id);
     }
     useChecked(!checked);
   };
