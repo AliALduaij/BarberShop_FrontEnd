@@ -17,7 +17,7 @@ import FilterOption from "./FilterOptions";
 const BarberList = () => {
   if (barberStore.loading) return <Spinner />;
 
-  const barbers = barberStore.barbers.map(barber => (
+  const barbers = barberStore.filterBy.map(barber => (
     <BarberItem barber={barber} key={barber.user} />
   ));
   return (
