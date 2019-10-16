@@ -6,13 +6,7 @@ import BarberList from "../BarberList";
 import { observer } from "mobx-react";
 
 class BarberOrUser extends Component {
-  render() {
-    if (authStore.isBarber) {
-      return <OrderList />;
-    } else {
-      return <BarberList />;
-    }
-  }
+  render() {}
 }
 
 export default observer(BarberOrUser);

@@ -1,6 +1,6 @@
 // others
 import React from "react";
-import { Spinner, Content, List, Text, Button } from "native-base";
+import { Spinner, Content, List, Text, Button, Icon } from "native-base";
 import { observer } from "mobx-react";
 
 // stores
@@ -31,7 +31,7 @@ BarberList.navigationOptions = ({ navigation }) => ({
   title: "Barbers",
   headerLeft: (
     <Button transparent onPress={() => navigation.openDrawer()}>
-      <Text>...</Text>
+      <Icon name="list" type="Feather" />
     </Button>
   ),
 

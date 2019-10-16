@@ -23,7 +23,7 @@ import addServicesStore from "../../Stores/AddServicesStore";
 class TimeItem extends Component {
   render() {
     const { time } = this.props;
-    // const newTime = moment(Date(time)).format("hh:mm:ss ");
+
     return (
       <Button
         onPress={() => addServicesStore.chooseTime(time.id)}

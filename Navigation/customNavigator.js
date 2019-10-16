@@ -8,11 +8,10 @@ const customNavigator = props => (
   <Container>
     <Header style={{ height: 250 }}>
       <Body></Body>
-      <LogoutButton />
     </Header>
     <Content>
       <DrawerNavigatorItems {...props} />
-      <Button></Button>
+      <LogoutButton />
     </Content>
   </Container>
 );

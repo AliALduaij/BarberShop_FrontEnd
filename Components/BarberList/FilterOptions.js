@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import { Button, Icon } from "native-base";
 
 import Modal from "react-native-modal";
 
@@ -17,14 +18,18 @@ export default class FilterOption extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Button title="Test" onPress={this.toggleModal} />
+        <Button transparent onPress={this.toggleModal}>
+          <Icon name="filter" type="Foundation" />
+        </Button>
         <Modal
           isVisible={this.state.isModalVisible}
           onBackdropPress={this.closeModal}
         >
           <View>
             <Text>Hiii</Text>
-            <Button title="Cancel" onPress={this.toggleModal} />
+            <Button onPress={this.toggleModal}>
+              <Text>Cancel</Text>
+            </Button>
           </View>
         </Modal>
       </View>

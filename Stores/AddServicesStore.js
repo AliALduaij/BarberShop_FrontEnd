@@ -26,18 +26,20 @@ class AddServicesStore {
     console.log("HowUDoinCancel?", this.timeID);
   };
 
-  bookService = async () => {
+  bookService = async navigation => {
     try {
       const res = await instance.put(
-        `user/appointment/update/${this.timeID}`,
-        this.services
+        `user/appointment/update/${this.timeID}/`,
+        {
+          services: this.services
+        }
       );
-
       this.services = [];
       this.timeID = "";
-      navigation.navigate("Home");
+      console.log("yaw yaw", this.services, this.timeID);
+      navigation.replace("BarberList");
     } catch (err) {
-      console.log("I'm an ERROR", err);
+      console.log("I'm an ERROR", err.response.data);
     }
   };
 }
