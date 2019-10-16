@@ -15,8 +15,10 @@ import {
   Content
 } from "native-base";
 
-// Style
+import { Image } from "react-native";
 
+// Style
+import styles from "../BarberList/style";
 //Store
 import barberStore from "../../Stores/BarberStore";
 
@@ -42,17 +44,22 @@ class BarberDetail extends Component {
         <List>
           <ListItem>
             <Left>
-              <Text>
+              <Text style={styles.text}>
                 {barber.name + "\n\n"}
-                <Text>
+                <Text style={styles.text}>
                   Nationality: {barber.nationality + "\n\n"}
-                  <Text>Experience: {barber.experience + "\n\n"}</Text>
+                  <Text style={styles.text}>
+                    Experience: {barber.experience + " years"}{" "}
+                  </Text>
                 </Text>
               </Text>
             </Left>
             <Body />
             <Right>
-              <Thumbnail bordered source={{ uri: barber.image }} />
+              <Image
+                style={{ height: 200, width: 200, marginBottom: 25 }}
+                source={{ uri: barber.image }}
+              />
             </Right>
           </ListItem>
           {services}

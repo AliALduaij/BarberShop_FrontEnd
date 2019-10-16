@@ -8,7 +8,7 @@ import barberStore from "../../Stores/BarberStore";
 
 // components
 import BarberItem from "./BarberItem";
-import style from "./style";
+import styles from "./style";
 import list from "./TestData";
 import FilterOption from "./FilterOptions";
 
