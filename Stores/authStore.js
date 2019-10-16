@@ -26,6 +26,7 @@ class AuthStore {
       try {
         const res = await instance.post("barber/register/", userData);
         const user = res.data;
+        this.isBarber = user.barber;
         this.setUser(user.access);
         navigation.replace("Home");
       } catch (err) {
@@ -35,6 +36,7 @@ class AuthStore {
       try {
         const res = await instance.post("user/register/", userData);
         const user = res.data;
+        this.isBarber = user.barber;
         this.setUser(user.access);
         navigation.replace("Home");
       } catch (err) {

@@ -15,17 +15,17 @@ import UserStack from "./UserStack";
 import authStore from "../Stores/authStore";
 import { observer } from "mobx-react";
 import Root from "./BarberStack";
-
+import UserProfile from "../Components/UserProfile";
 
 // const userType = authStore.isBarber;
 
 const DrawerNav = createDrawerNavigator(
   {
     Home: Root,
-    Login: Login
+    Login: Login,
+    Profile: UserProfile,
+    SignUp: SignUp
   },
-
-
 
   {
     headerMode: "float",
