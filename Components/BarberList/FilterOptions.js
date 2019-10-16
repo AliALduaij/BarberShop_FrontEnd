@@ -5,6 +5,7 @@ import { Button, Icon } from "native-base";
 import Modal from "react-native-modal";
 
 import { List } from "native-base";
+import barberStore from "../../Stores/BarberStore";
 
 export default class FilterOption extends Component {
   state = {
@@ -13,6 +14,11 @@ export default class FilterOption extends Component {
 
   toggleModal = () => {
     this.setState({ isModalVisible: !this.state.isModalVisible });
+  };
+
+  handlePress = query => {
+    this.toggleModal();
+    barberStore.query = query;
   };
 
   render() {
@@ -26,7 +32,22 @@ export default class FilterOption extends Component {
           onBackdropPress={this.closeModal}
         >
           <View>
-            <Text>Hiii</Text>
+            <Text>Filter By</Text>
+            <List>
+              <Button onPress={() => this.handlePress("I kill")}>
+                <Text>By Beard</Text>
+              </Button>
+            </List>
+            <List>
+              <Button onPress={() => this.handlePress("I kill")}>
+                <Text>Hair Cut</Text>
+              </Button>
+            </List>
+            <List>
+              <Button onPress={() => this.handlePress("")}>
+                <Text>All</Text>
+              </Button>
+            </List>
             <Button onPress={this.toggleModal}>
               <Text>Cancel</Text>
             </Button>
