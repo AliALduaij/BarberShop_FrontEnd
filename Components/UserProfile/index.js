@@ -117,13 +117,15 @@ class Profile extends Component {
                 bordered
                 source={{ uri: profileStore.profile.image }}
               />
-              <Icon
-                name="account-details"
-                type="MaterialCommunityIcons"
-                onPress={() =>
-                  this.props.navigation.navigate("EditUserProfile")
-                }
-              />
+              <Right>
+                <Icon
+                  name="account-details"
+                  type="MaterialCommunityIcons"
+                  onPress={() =>
+                    this.props.navigation.navigate("EditUserProfile")
+                  }
+                />
+              </Right>
             </CardItem>
             <CardItem>
               <Text padder>Welcome Back {profileStore.profile.name}!</Text>
@@ -133,11 +135,19 @@ class Profile extends Component {
             </CardItem>
 
             {profileStore.profile.is_barber ? (
-              <CardItem>
-                <Text padder>
-                  Nationality: {profileStore.profile.nationality}
-                </Text>
-              </CardItem>
+              <>
+                <CardItem>
+                  <Text padder>
+                    Nationality: {profileStore.profile.nationality}
+                  </Text>
+                </CardItem>
+                <CardItem>
+                  <Text padder>
+                    {" "}
+                    Experience: {profileStore.profile.experience}
+                  </Text>
+                </CardItem>
+              </>
             ) : (
               <CardItem>
                 <Text padder> Address: {profileStore.profile.address}</Text>
@@ -146,9 +156,6 @@ class Profile extends Component {
 
             <CardItem>
               <Text padder> Credit: {profileStore.profile.credit}</Text>
-            </CardItem>
-            <CardItem>
-              <Text padder> Experience: {profileStore.profile.experience}</Text>
             </CardItem>
           </Card>
           {profileStore.profile.is_barber && (

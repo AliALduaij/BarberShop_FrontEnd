@@ -50,23 +50,69 @@ class EditUserProfile extends Component {
                     onChangeText={telephone => this.setState({ telephone })}
                   />
                 </Item>
-                <Body>
-                  <Label style={{ color: "black" }}>Address</Label>
-                </Body>
-                <Item
-                  rounded
-                  style={{
-                    backgroundColor: "white",
-                    marginTop: 10,
-                    marginBottom: 10
-                  }}
-                >
-                  <Input
-                    autoCorrect={false}
-                    autoCapitalize="none"
-                    onChangeText={address => this.setState({ address })}
-                  />
-                </Item>
+
+                {profileStore.profile.is_barber ? (
+                  <>
+                    <Body>
+                      <Label style={{ color: "black" }}>Nationality</Label>
+                    </Body>
+                    <Item
+                      rounded
+                      style={{
+                        backgroundColor: "white",
+                        marginTop: 10,
+                        marginBottom: 10
+                      }}
+                    >
+                      <Input
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        onChangeText={nationality =>
+                          this.setState({ nationality })
+                        }
+                      />
+                    </Item>
+                    <Body>
+                      <Label style={{ color: "black" }}>Experience</Label>
+                    </Body>
+                    <Item
+                      rounded
+                      style={{
+                        backgroundColor: "white",
+                        marginTop: 10,
+                        marginBottom: 10
+                      }}
+                    >
+                      <Input
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        onChangeText={experience =>
+                          this.setState({ experience })
+                        }
+                      />
+                    </Item>
+                  </>
+                ) : (
+                  <>
+                    <Body>
+                      <Label style={{ color: "black" }}>Address</Label>
+                    </Body>
+                    <Item
+                      rounded
+                      style={{
+                        backgroundColor: "white",
+                        marginTop: 10,
+                        marginBottom: 10
+                      }}
+                    >
+                      <Input
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        onChangeText={address => this.setState({ address })}
+                      />
+                    </Item>
+                  </>
+                )}
               </Form>
             </Body>
           </ListItem>

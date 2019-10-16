@@ -51,7 +51,7 @@ class AuthStore {
       const data = res.data;
       this.isBarber = data.barber;
       await this.setUser(data.access);
-      navigation.navigate(this.isBarber ? "BarberStack" : "UserStack");
+      navigation.navigate("Profile");
     } catch (err) {
       console.error(err.response.data);
     }
