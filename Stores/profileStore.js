@@ -9,7 +9,7 @@ class ProfileStore {
   notifications = [];
   fetchProfile = async () => {
     try {
-      authStore.isBarber
+      !authStore.isBarber
         ? (res = await instance.get("user/profile/"))
         : (res = await instance.get("barber/profile/"));
 

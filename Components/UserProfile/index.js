@@ -28,6 +28,7 @@ import profileStore from "../../Stores/profileStore";
 
 //Components
 import AppointmentCard from "./AppointmentCard";
+import ServiceCard from "./ServiceCard";
 
 //Buttons
 // import NotificationButton from "../Buttons/NotificationButton";
@@ -101,6 +102,12 @@ class Profile extends Component {
       appointment => <AppointmentCard appointment={appointment} />
     );
 
+    let my_services = [];
+    if (profileStore.profile.is_barber)
+      my_services = profileStore.profile.services.map(service => (
+        <ServiceCard service={service} />
+      ));
+
     return (
       <Container>
         <Content padder>
@@ -119,16 +126,37 @@ class Profile extends Component {
               />
             </CardItem>
             <CardItem>
-              <Text>I AM A USER</Text>
               <Text padder>Welcome Back {profileStore.profile.name}!</Text>
             </CardItem>
             <CardItem>
               <Text padder> Telephone: {profileStore.profile.telephone}</Text>
             </CardItem>
+
+            {profileStore.profile.is_barber ? (
+              <CardItem>
+                <Text padder>
+                  Nationality: {profileStore.profile.nationality}
+                </Text>
+              </CardItem>
+            ) : (
+              <CardItem>
+                <Text padder> Address: {profileStore.profile.address}</Text>
+              </CardItem>
+            )}
+
             <CardItem>
-              <Text padder> Address: {profileStore.profile.address}</Text>
+              <Text padder> Credit: {profileStore.profile.credit}</Text>
+            </CardItem>
+            <CardItem>
+              <Text padder> Experience: {profileStore.profile.experience}</Text>
             </CardItem>
           </Card>
+          {profileStore.profile.is_barber && (
+            <>
+              <Text padder> Services:</Text>
+              {my_services}
+            </>
+          )}
 
           <Text>{"\n"}Upcoming Appointments</Text>
           {/* <Accordion
