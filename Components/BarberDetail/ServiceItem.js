@@ -6,14 +6,21 @@ import {
   CollapseHeader,
   CollapseBody
 } from "accordion-collapse-react-native";
-import { Thumbnail, List, ListItem, Separator, CheckBox } from "native-base";
+import {
+  Thumbnail,
+  List,
+  ListItem,
+  Separator,
+  CheckBox,
+  Right
+} from "native-base";
 
 // for tags
 
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 // style
-
+import styles from "../BarberList/style";
 // stores
 import addServicesStore from "../../Stores/AddServicesStore";
 
@@ -33,13 +40,11 @@ const ServiceItem = ({ service }) => {
   };
 
   return (
-    <View>
+    <>
       <Collapse>
-        <CollapseHeader>
+        <CollapseHeader style={{ height: 50 }}>
           <Separator bordered>
-            <CheckBox checked={checked} color="green" onPress={handlePress} />
-
-            <Text>{service.name}</Text>
+            <Text style={styles.textBody}>{service.name}</Text>
           </Separator>
         </CollapseHeader>
         <CollapseBody>
@@ -52,9 +57,13 @@ const ServiceItem = ({ service }) => {
           <ListItem last>
             <Text> Price: {service.price} KWD</Text>
           </ListItem>
+          <ListItem>
+            <CheckBox checked={checked} color="green" onPress={handlePress} />
+            <Text> Add service</Text>
+          </ListItem>
         </CollapseBody>
       </Collapse>
-    </View>
+    </>
   );
 };
 

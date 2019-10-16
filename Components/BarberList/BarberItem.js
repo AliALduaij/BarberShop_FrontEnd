@@ -6,7 +6,7 @@ import { Card, CardItem, Thumbnail, Text, Left } from "native-base";
 import { TouchableHighlight } from "react-native-gesture-handler";
 
 // style
-
+import styles from "./style";
 //components
 
 class BarberItem extends Component {
@@ -26,7 +26,7 @@ class BarberItem extends Component {
             <Left>
               <Thumbnail bordered source={{ uri: barber.image }} />
 
-              <Text>{barber.name}</Text>
+              <Text style={styles.text}>{barber.name}</Text>
 
               {/* i will put ratings here later */}
               {/* i will put estimated time here later */}
