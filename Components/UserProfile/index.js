@@ -35,6 +35,7 @@ import ServiceCard from "./ServiceCard";
 //Buttons
 // import NotificationButton from "../Buttons/NotificationButton";
 import styles from "../BarberList/style";
+import CreatAppointment from "../BarberProfile/CreateAppointment";
 
 class Profile extends Component {
   // static navigationOptions = ({ navigation }) => ({
@@ -48,6 +49,7 @@ class Profile extends Component {
   //     item: item
   //   });
   // };
+
   componentDidMount() {
     if (authStore.user) {
       profileStore.fetchProfile();
@@ -77,7 +79,6 @@ class Profile extends Component {
 
     return (
       <Container>
-        <Header />
         <Content>
           <Card>
             <CardItem>
@@ -120,7 +121,7 @@ class Profile extends Component {
               />
             </CardItem>
             <CardItem>
-              <Left>
+              {/* <Left>
                 <Icon
                   color="black"
                   name="calendar-plus"
@@ -129,7 +130,8 @@ class Profile extends Component {
                     this.props.navigation.navigate("CreateAppointment")
                   }
                 />
-              </Left>
+              </Left> */}
+              <CreatAppointment />
               <Right>
                 <Icon
                   name="flag"

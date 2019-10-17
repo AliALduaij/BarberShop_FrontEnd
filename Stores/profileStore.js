@@ -48,6 +48,7 @@ class ProfileStore {
         "barber/appointment/create/",
         appointmentData
       );
+      alert("Appointment added successfully.");
     } catch (err) {
       console.log(err.response.data);
     }

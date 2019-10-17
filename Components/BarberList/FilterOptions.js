@@ -34,26 +34,50 @@ export default class FilterOption extends Component {
           <View>
             <Text>Filter By</Text>
             <List>
-              <Button onPress={() => this.handlePress("I kill")}>
-                <Text>By Beard</Text>
+              <Button transparent onPress={() => this.handlePress("I kill")}>
+                <Text style={styles.Text}>By Beard</Text>
               </Button>
             </List>
             <List>
-              <Button onPress={() => this.handlePress("I kill")}>
-                <Text>Hair Cut</Text>
+              <Button transparent onPress={() => this.handlePress("I kill")}>
+                <Text style={styles.Text}>Hair Cut</Text>
               </Button>
             </List>
             <List>
-              <Button onPress={() => this.handlePress("")}>
-                <Text>All</Text>
+              <Button transparent onPress={() => this.handlePress("")}>
+                <Text style={styles.Text}>All</Text>
               </Button>
             </List>
-            <Button onPress={this.toggleModal}>
-              <Text>Cancel</Text>
-            </Button>
           </View>
+          <Button
+            style={styles.cancelButton}
+            bordered
+            light
+            onPress={this.toggleModal}
+          >
+            <Text style={styles.cancelText}>Cancel</Text>
+          </Button>
         </Modal>
       </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  Text: {
+    fontSize: 20,
+
+    fontStyle: "italic",
+    color: "white",
+    paddingLeft: 16
+  },
+  cancelText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    fontStyle: "italic",
+    color: "white",
+    paddingLeft: 150
+  },
+  cancelButton: {
+    marginTop: 40
+  }
+});

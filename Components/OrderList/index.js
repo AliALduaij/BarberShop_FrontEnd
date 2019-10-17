@@ -1,6 +1,6 @@
 // others
 import React, { Component } from "react";
-import { Spinner, Content, List, Text, Button } from "native-base";
+import { Spinner, Content, List, Text, Button, Icon } from "native-base";
 import { observer } from "mobx-react";
 
 // stores
@@ -41,11 +41,11 @@ OrderList.navigationOptions = ({ navigation }) => ({
   title: "Orders",
   headerLeft: (
     <Button transparent onPress={() => navigation.openDrawer()}>
-      <Text>...</Text>
+      <Icon name="list" type="Feather" />
     </Button>
   ),
 
   headerRight: null
 });
-
+//
 export default observer(OrderList);

@@ -4,6 +4,7 @@ import { observable, decorate } from "mobx";
 class AddServicesStore {
   services = []; //service list
   timeID = "";
+  appointmentID = "";
 
   removeService = service => {
     this.services = this.services.filter(
@@ -42,11 +43,22 @@ class AddServicesStore {
       console.log("I'm an ERROR", err.response.data);
     }
   };
+  finishedAppointment = async () => {
+    try {
+      const res = await instance.put(
+        `barber/appointment/update/${this.appointmentID}/`
+      );
+      alert("Job finished");
+    } catch (err) {
+      console.log("I'm an ERROR", err.response.data);
+    }
+  };
 }
 
 decorate(AddServicesStore, {
   services: observable,
-  timeID: observable
+  timeID: observable,
+  appointmentID: observable
 });
 
 const addServicesStore = new AddServicesStore();

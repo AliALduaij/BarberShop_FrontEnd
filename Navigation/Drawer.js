@@ -25,10 +25,7 @@ const DrawerNav = createDrawerNavigator(
   {
     Home: Root,
     Login: Login,
-    Profile: UserProfile,
-    SignUp: SignUp,
-    EditUserProfile: EditUserProfile,
-    CreateAppointment: CreateAppointment
+    Profile: UserProfile
   },
 
   {
