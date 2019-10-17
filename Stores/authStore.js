@@ -59,7 +59,7 @@ class AuthStore {
 
   logout = async navigation => {
     await this.setUser();
-    navigation.navigate("Login");
+    navigation.navigate("UserStack");
   };
 
   checkForToken = async () => {
