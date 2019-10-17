@@ -78,11 +78,6 @@ class Login extends Component {
           >
             <Text>Login</Text>
           </Button>
-
-          <Text style={{ textAlign: "center" }}>
-            Check this box to login as a barber.
-          </Text>
-
           <Text
             style={{ color: "blue", textAlign: "center" }}
             onPress={() => this.props.navigation.navigate("SignUp")}

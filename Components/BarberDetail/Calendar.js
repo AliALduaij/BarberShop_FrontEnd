@@ -28,7 +28,7 @@ class Calendar extends Component {
     console.log("SDFsd", dates);
 
     return (
-      <View style={styles.container}>
+      <View>
         <CalendarPicker
           onDateChange={this.onDateChange}
           // disabledDates={dates} // for full bookings later

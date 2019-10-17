@@ -67,7 +67,7 @@ class BarberDetail extends Component {
           {barber.appointments ? (
             <Calendar barberID={barberID} />
           ) : (
-            <Text>This barber has no appointments.</Text>
+            <Text style={styles.text}>This barber has no appointments.</Text>
           )}
           <Button
             onPress={() =>

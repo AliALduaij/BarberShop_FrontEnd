@@ -11,6 +11,7 @@ import authStore from "../Stores/authStore";
 
 import BarberList from "../Components/BarberList";
 import BarberDetail from "../Components/BarberDetail";
+import CreateAppointment from "../Components/BarberProfile/CreateAppointment";
 import Profile from "../Components/UserProfile";
 import { observer } from "mobx-react";
 
@@ -20,7 +21,8 @@ const BarberStack = createStackNavigator(
   {
     Profile: BarberProfile,
     OrderList: OrderList,
-    OrderDetail: OrderDetail
+    OrderDetail: OrderDetail,
+    CreateAppointment: CreateAppointment
   },
   {
     initialRouteName: "OrderList",
