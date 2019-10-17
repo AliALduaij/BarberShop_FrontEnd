@@ -9,9 +9,10 @@ class ProfileStore {
   notifications = [];
   fetchProfile = async () => {
     try {
-      !authStore.isBarber
-        ? (res = await instance.get("user/profile/"))
-        : (res = await instance.get("barber/profile/"));
+      console.log("moh yaw", authStore.isBarber);
+      authStore.isBarber
+        ? (res = await instance.get("barber/profile/"))
+        : (res = await instance.get("user/profile/"));
 
       this.profile = res.data;
       this.loading = false;
@@ -36,6 +37,17 @@ class ProfileStore {
       // const updatedProfile = res.data;
       // this.profile = updatedProfile;
       navigation.replace("Profile");
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+
+  createAppointment = async appointmentData => {
+    try {
+      let res = await instance.post(
+        "barber/appointment/create/",
+        appointmentData
+      );
     } catch (err) {
       console.log(err.response.data);
     }

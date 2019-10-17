@@ -111,7 +111,6 @@ class BarberProfile extends Component {
               />
             </CardItem>
             <CardItem>
-              <Text>I AM A BARBER!</Text>
               <Text padder>Welcome Back {profileStore.profile.name}!</Text>
             </CardItem>
             <CardItem>

@@ -1,18 +1,21 @@
 import React, { Component, useState } from "react";
 import { withNavigation } from "react-navigation";
-import { View, Text, Left } from "react-native";
+import { View, Text } from "react-native";
 import {
   Collapse,
   CollapseHeader,
   CollapseBody
 } from "accordion-collapse-react-native";
+
 import {
   Thumbnail,
   List,
   ListItem,
   Separator,
   CheckBox,
-  Right
+  Right,
+  Body,
+  Left
 } from "native-base";
 
 // for tags
@@ -44,7 +47,11 @@ const ServiceItem = ({ service }) => {
       <Collapse>
         <CollapseHeader style={{ height: 50 }}>
           <Separator bordered>
-            <Text style={styles.textBody}>{service.name}</Text>
+            <CheckBox checked={checked} color="green" onPress={handlePress} />
+
+            <Body>
+              <Text style={styles.textBody}>{service.name}</Text>
+            </Body>
           </Separator>
         </CollapseHeader>
         <CollapseBody>
@@ -57,10 +64,7 @@ const ServiceItem = ({ service }) => {
           <ListItem last>
             <Text> Price: {service.price} KWD</Text>
           </ListItem>
-          <ListItem>
-            <CheckBox checked={checked} color="green" onPress={handlePress} />
-            <Text> Add service</Text>
-          </ListItem>
+          <ListItem></ListItem>
         </CollapseBody>
       </Collapse>
     </>

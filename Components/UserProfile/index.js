@@ -21,6 +21,8 @@ import {
   Right
 } from "native-base";
 
+import { Image, View } from "react-native";
+
 // Stores
 import authStore from "../../Stores/authStore";
 import profileStore from "../../Stores/profileStore";
@@ -32,6 +34,7 @@ import ServiceCard from "./ServiceCard";
 
 //Buttons
 // import NotificationButton from "../Buttons/NotificationButton";
+import styles from "../BarberList/style";
 
 class Profile extends Component {
   // static navigationOptions = ({ navigation }) => ({
@@ -58,42 +61,6 @@ class Profile extends Component {
 
     if (profileStore.loading) return <Spinner />;
 
-    // this is the order history, will be replaced by APPOINTMENT HISTORY
-
-    // const dataArray = [];
-    // profileStore.carts.forEach(cart =>
-    //   dataArray.push({
-    //     title: "Order Total: " + cart.total + "KD",
-    //     content: cart
-    //   })
-    // );
-
-    // This will render an ACCORDION to map through the Appointment History Items
-
-    // _renderContent = item => {
-    //   let zzz = item.content.cart_items.map(cartItem => {
-    //     let item = carStore.getCarById(cartItem.product);
-    //     return (
-    //       <ListItem thumbnail>
-    //         <Left>
-    //           <Thumbnail square source={{ uri: item.image }} />
-    //         </Left>
-    //         <Body>
-    //           <Text>
-    //             {item.manufacturer} {item.model} {item.year}
-    //           </Text>
-    //         </Body>
-    //         <Right>
-    //           <Button transparent onPress={() => this.handlePress(item)}>
-    //             <Text>View</Text>
-    //           </Button>
-    //         </Right>
-    //       </ListItem>
-    //     );
-    //   });
-    //   return <List>{zzz}</List>;
-    // };
-
     const future_appointments = profileStore.profile.future_appointments.map(
       appointment => <AppointmentCard appointment={appointment} />
     );
@@ -110,14 +77,11 @@ class Profile extends Component {
 
     return (
       <Container>
-        <Content padder>
+        <Header />
+        <Content>
           <Card>
             <CardItem>
-              <Thumbnail
-                bordered
-                source={{ uri: profileStore.profile.image }}
-              />
-              <Right>
+              <Left>
                 <Icon
                   name="account-details"
                   type="MaterialCommunityIcons"
@@ -125,24 +89,83 @@ class Profile extends Component {
                     this.props.navigation.navigate("EditUserProfile")
                   }
                 />
+              </Left>
+              <Right>
+                <Icon
+                  name="coins"
+                  type="FontAwesome5"
+                  color="black"
+                  onPress={() =>
+                    this.props.navigation.navigate("EditUserProfile")
+                  }
+                />
+              </Right>
+              <Right>
+                <Text
+                  style={{
+                    color: "green",
+                    fontSize: 12,
+                    marginLeft: null,
+                    paddingLeft: null
+                  }}
+                >
+                  {profileStore.profile.credit}
+                </Text>
               </Right>
             </CardItem>
-            <CardItem>
-              <Text padder>Welcome Back {profileStore.profile.name}!</Text>
+            <CardItem cardBody>
+              <Image
+                source={{ uri: profileStore.profile.image }}
+                style={{ height: 200, width: null, flex: 1 }}
+              />
             </CardItem>
             <CardItem>
-              <Text padder> Telephone: {profileStore.profile.telephone}</Text>
+              <Left>
+                <Icon
+                  color="black"
+                  name="calendar-plus"
+                  type="MaterialCommunityIcons"
+                  onPress={() =>
+                    this.props.navigation.navigate("CreateAppointment")
+                  }
+                />
+              </Left>
+              <Right>
+                <Icon
+                  name="flag"
+                  type="MaterialCommunityIcons"
+                  color="black"
+                  onPress={() =>
+                    this.props.navigation.navigate("EditUserProfile")
+                  }
+                />
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <Body>
+              <CardItem>
+                <Text style={styles.text}>
+                  Welcome Back {profileStore.profile.name}!
+                </Text>
+              </CardItem>
+            </Body>
+            <CardItem>
+              <Text style={styles.textBody}>
+                {" "}
+                Telephone: {profileStore.profile.telephone}
+              </Text>
             </CardItem>
 
             {profileStore.profile.is_barber ? (
               <>
                 <CardItem>
-                  <Text padder>
+                  <Text style={styles.textBody}>
                     Nationality: {profileStore.profile.nationality}
                   </Text>
                 </CardItem>
                 <CardItem>
-                  <Text padder>
+                  <Text style={styles.textBody}>
                     {" "}
                     Experience: {profileStore.profile.experience}
                   </Text>
@@ -150,22 +173,28 @@ class Profile extends Component {
               </>
             ) : (
               <CardItem>
-                <Text padder> Address: {profileStore.profile.address}</Text>
+                <Text style={styles.textBody}>
+                  {" "}
+                  Address: {profileStore.profile.address}
+                </Text>
               </CardItem>
             )}
 
             <CardItem>
-              <Text padder> Credit: {profileStore.profile.credit}</Text>
+              <Text style={styles.textBody}>
+                {" "}
+                Credit: {profileStore.profile.credit}
+              </Text>
             </CardItem>
           </Card>
           {profileStore.profile.is_barber && (
             <>
-              <Text padder> Services:</Text>
+              <Text style={styles.textBody}> Services:</Text>
               {my_services}
             </>
           )}
 
-          <Text>{"\n"}Upcoming Appointments</Text>
+          <Text style={styles.textBody}>{"\n"}Upcoming Appointments</Text>
           {/* <Accordion
             renderContent={_renderContent}
             dataArray={dataArray}

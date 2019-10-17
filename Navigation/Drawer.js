@@ -17,6 +17,7 @@ import { observer } from "mobx-react";
 import Root from "./BarberStack";
 import UserProfile from "../Components/UserProfile";
 import EditUserProfile from "../Components/UserProfile/EditProfile";
+import CreateAppointment from "../Components/BarberProfile/CreateAppointment";
 
 // const userType = authStore.isBarber;
 
@@ -26,7 +27,8 @@ const DrawerNav = createDrawerNavigator(
     Login: Login,
     Profile: UserProfile,
     SignUp: SignUp,
-    EditUserProfile: EditUserProfile
+    EditUserProfile: EditUserProfile,
+    CreateAppointment: CreateAppointment
   },
 
   {

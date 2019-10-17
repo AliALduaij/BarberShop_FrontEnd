@@ -4,6 +4,7 @@ import { Image, Text } from "react-native";
 import { Button } from "native-base";
 import { Container, Content, Header, Body } from "native-base";
 import LogoutButton from "../Components/Buttons/LogoutButton";
+import authStore from "../Stores/authStore";
 const customNavigator = props => (
   <Container>
     <Header style={{ height: 250 }}>
@@ -11,7 +12,7 @@ const customNavigator = props => (
     </Header>
     <Content>
       <DrawerNavigatorItems {...props} />
-      <LogoutButton />
+      {authStore.user ? <LogoutButton /> : null}
     </Content>
   </Container>
 );
