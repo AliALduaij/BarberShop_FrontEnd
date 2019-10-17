@@ -120,29 +120,24 @@ class Profile extends Component {
                 style={{ height: 400, width: null, flex: 1 }}
               />
             </CardItem>
-            <CardItem>
-              {/* <Left>
-                <Icon
-                  color="black"
-                  name="calendar-plus"
-                  type="MaterialCommunityIcons"
-                  onPress={() =>
-                    this.props.navigation.navigate("CreateAppointment")
-                  }
-                />
-              </Left> */}
-              <CreatAppointment />
-              <Right>
-                <Icon
-                  name="flag"
-                  type="MaterialCommunityIcons"
-                  color="black"
-                  onPress={() =>
-                    this.props.navigation.navigate("EditUserProfile")
-                  }
-                />
-              </Right>
-            </CardItem>
+
+            {profileStore.profile.is_barber ? (
+              <>
+                <CardItem>
+                  <CreatAppointment />
+                  <Right>
+                    <Icon
+                      name="flag"
+                      type="MaterialCommunityIcons"
+                      color="black"
+                      onPress={() =>
+                        this.props.navigation.navigate("EditUserProfile")
+                      }
+                    />
+                  </Right>
+                </CardItem>
+              </>
+            ) : null}
           </Card>
           <Card>
             <Body>

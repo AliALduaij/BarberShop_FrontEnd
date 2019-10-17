@@ -48,10 +48,7 @@ const ServiceItem = ({ service }) => {
         <CollapseHeader style={{ height: 50 }}>
           <Separator bordered>
             <CheckBox checked={checked} color="green" onPress={handlePress} />
-
-            <Body>
-              <Text style={styles.textBody}>{service.name}</Text>
-            </Body>
+            <Text style={styles.textBody}>{service.name}</Text>
           </Separator>
         </CollapseHeader>
         <CollapseBody>
