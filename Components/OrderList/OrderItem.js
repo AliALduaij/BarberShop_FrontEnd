@@ -36,7 +36,7 @@ class OrderItem extends Component {
     };
 
     let newDate = moment(Date(order.date_and_time)).format("DD-MM-YYYY");
-    let newTime = moment(Date(order.date_and_time)).format("hh:mm:ss");
+    let newTime = moment(order.date_and_time).format("hh:mm:ss");
     return (
       <Card>
         <CardItem>
