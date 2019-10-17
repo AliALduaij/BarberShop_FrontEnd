@@ -117,7 +117,7 @@ class Profile extends Component {
             <CardItem cardBody>
               <Image
                 source={{ uri: profileStore.profile.image }}
-                style={{ height: 200, width: null, flex: 1 }}
+                style={{ height: 400, width: null, flex: 1 }}
               />
             </CardItem>
             <CardItem>
