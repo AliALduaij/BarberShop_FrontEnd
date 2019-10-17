@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { StyleSheet } from "react-native";
+import style from "../BarberList/style";
 
 // Component
 
@@ -46,14 +47,12 @@ class OrderItem extends Component {
     return (
       <Card>
         <CardItem>
-          <Text>Client Name: {order.customer_name}</Text>
+          <Text style={style.textBody}>Client Name: {order.customer_name}</Text>
         </CardItem>
         <CardItem>
-          <Text>Date: {newDate}</Text>
+          <Text style={style.textBody}>Date: {newDate}</Text>
         </CardItem>
-        <CardItem>
-          <Text>Time: {newTime}</Text>
-        </CardItem>
+
         {/* <CardItem>
         {order.services.map(service => (
           <Text>Services: {service}</Text>

@@ -43,14 +43,21 @@ export default class CreatAppointment extends Component {
               onDateChange={this.setDate}
             />
             <Button
-              title="Add appointment."
+              bordered
+              dark
+              style={styles.Confirm}
               onPress={() => profileStore.createAppointment(this.state)}
             >
-              <Text>Add appointment.</Text>
+              <Text style={styles.ConfirmText}>Add </Text>
             </Button>
 
-            <Button onPress={this.toggleModal}>
-              <Text>Cancel</Text>
+            <Button
+              bordered
+              dark
+              style={styles.Cancel}
+              onPress={this.toggleModal}
+            >
+              <Text style={styles.CancelText}>Cancel</Text>
             </Button>
           </View>
         </Modal>
@@ -63,5 +70,33 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center"
+  },
+  Cancel: {
+    position: "absolute",
+    bottom: 10,
+    right: 50,
+    height: 50,
+    width: 100
+  },
+  CancelText: {
+    fontSize: 20,
+
+    fontStyle: "italic",
+
+    paddingLeft: 16
+  },
+  Confirm: {
+    position: "absolute",
+    bottom: 10,
+    left: 50,
+    height: 50,
+    width: 100
+  },
+  ConfirmText: {
+    fontSize: 20,
+
+    fontStyle: "italic",
+
+    paddingLeft: 30
   }
 });
